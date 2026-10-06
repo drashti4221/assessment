@@ -1,0 +1,160 @@
+                                                            Introduction to Programming
+
+
+
+Section A:
+Q1 – Which development methodology would you recommend for this project, and why?
+Identify two specific risks the team would face if they chose the wrong methodology for this
+context.
+
+=>Recommended methodology: Agile
+
+Why:
+Agile is suitable because the project has frequently changing requirements and the client wants to
+ review working features every two weeks. Agile allows the team to 
+develop the application in small iterations and take regular client feedback.
+
+->Two risks of choosing the wrong methodology (Waterfall):
+
+1.Changing requirements: Changes made later could be costly and require major rework.
+2.Late feedback: The client may see the working product only near the end,
+ causing problems to be discovered too late.
+
+Q2 -  Describe the Git workflow your team should adopt to prevent this from happening
+again. Name at least two Git commands your team should use as part of this workflow and
+explain the role of each command.
+
+=>Recommended Git workflow:
+
+The team should use a feature-branch workflow instead of directly making changes on the main branch. 
+Each team member should create a separate branch for their work, make changes, and test them before creating a Pull Request.
+ The changes should be reviewed and merged into the main branch only after they are working correctly.
+
+->Git commands:
+
+1. git checkout -b feature-name
+This command creates a new branch and switches to it. Team members can use it to work on their feature without affecting the main branch.
+
+2. git pull
+This command downloads and integrates the latest changes from the remote repository, helping the team keep their local branch updated.
+
+3. git push
+This command uploads the committed changes from the local branch to the remote repository so that other team members can review them.
+
+->This workflow reduces the risk of incomplete or untested code breaking the main branch.
+
+Q3 - List the appropriate HTML input types you would use for each of the five fields. Explain
+how you would use HTML5 built-in validation attributes to enforce the two constraints mentioned,
+and why these attributes alone are not sufficient for production-level validation.
+
+=>1. Name:
+Input type: text
+Validation: required
+
+2. Email Address:
+Input type: email
+Validation: required
+
+3. Phone Number:
+Input type: tel
+Validation: required
+
+4. Preferred Domain:
+Input type: select
+Validation: required
+
+5. Resume:
+Input type: file
+Validation: required
+
+->HTML5 validation:
+->The required attribute should be used on all five fields so that no field can be left empty.
+
+->For the email field, the input type="email" should be used along with required. The browser will 
+automatically check whether the entered value follows a valid email format.
+
+->These HTML5 validations are useful for basic client-side validation, but they are not sufficient
+ for production-level validation because users can bypass browser validation. Server-side validation 
+is also required for security and data integrity.
+
+Q4 - Explain how Bootstrap's grid class system works to produce this responsive layout.
+Write the Bootstrap class combination you would apply to the article column div, and explain
+what each class in the combination controls.
+
+=>Bootstrap uses a 12-column grid system. To display articles in 3 columns on desktop and 1 column on mobile,
+ we can use the following Bootstrap classes:
+
+<div class="row">
+    <div class="col-12 col-md-4">Article 1</div>
+    <div class="col-12 col-md-4">Article 2</div>
+    <div class="col-12 col-md-4">Article 3</div>
+</div>
+
+->Explanation:
+
+- row: Creates a horizontal row for the columns.
+- col-12: Makes each article occupy all 12 columns on small/mobile screens, so they appear as one column.
+- col-md-4: From medium-sized screens and above, each article occupies 4 out of 12 columns.
+  Therefore, 3 articles fit in one row (4 + 4 + 4 = 12).
+
+->This creates a responsive layout without writing custom media query CSS.
+
+Q5 - Explain why an array is the correct data structure for this task compared to using 30
+separate variables. Describe the two-step logic your program would follow: first to compute the
+average, then to identify the above-average days — and explain why both steps cannot be done
+in a single loop.
+
+=>An array of 5 integers can be declared and initialized as follows:
+
+int numbers[5] = {10, 20, 30, 40, 50};
+
+->To print all elements using a loop:
+
+for(int i = 0; i < 5; i++)
+{
+    printf("%d ", numbers[i]);
+}
+
+->To change the second element:
+numbers[1] = 25;
+
+->The second element is changed using index 1 because C arrays use zero-based indexing.
+
+->Updated array:
+10 25 30 40 50
+
+Q6 -  Explain why the program crashes on an empty string input and describe the check
+your pointer-based solution must perform before dereferencing the pointer. How does traversing
+a string using a pointer differ from traversing it using array index notation, and which approach
+makes the empty-input bug easier to catch?
+
+=>A pointer is a variable that stores the memory address of another variable.
+
+Example:
+
+int num = 10;
+int *ptr = &num;
+
+printf("Value of num: %d\n", num);
+printf("Address of num: %p\n", (void*)&num);
+printf("Value using pointer: %d\n", *ptr);
+
+*ptr = 20;
+
+printf("Updated value of num: %d\n", num);
+
+->Explanation:
+
+- &num gives the memory address of num.
+- ptr stores the address of num.
+- *ptr accesses the value stored at that address.
+- When we use *ptr = 20, the value of num is changed to 20.
+
+Session D 
+
+ans:
+=>The original program calculated the mean using integer division,
+which could lose the decimal part of the average. This caused
+the midway comparison to give an incorrect result for some inputs.
+I changed the calculation to float division and corrected the comparison.
+
